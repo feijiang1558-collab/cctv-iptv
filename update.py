@@ -51,6 +51,13 @@ TIMEOUT = 8          # 单源实测超时（秒）
 MAX_WORKERS = 16     # 并发检测线程数
 TOP_N = 1            # 每频道输出源数量（保持列表精简）
 
+# 固定源：这些频道跳过自动实测，直接使用指定地址。
+# 用途：某些频道自动选中的源会注入垃圾广告，锁定为干净源可规避。
+# 注意：固定源不再随每天自动更新而变化；若该源失效，需手动更换此处地址。
+PINNED_SOURCES = {
+    "CCTV1": ("http://101.35.240.114:88/live.php?id=CCTV1", "AptvPlayer-UA"),
+}
+
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 
 
@@ -210,6 +217,19 @@ def select(entries):
         results = [f.result() for f in as_completed(futures)]
     chosen = {}
     for t in TARGETS:
+        # 固定源优先：跳过自动实测结果，直接锁定干净源
+        if t["key"] in PINNED_SOURCES:
+            url, ua = PINNED_SOURCES[t["key"]]
+            chosen[t["key"]] = [{
+                "url": url,
+                "latency": 0,
+                "headers": {"User-Agent": ua},
+                "display": t["display"],
+                "attrs": {},
+                "ok": True,
+            }]
+            log("  %s 使用固定源（跳过自动选源）" % t["display"])
+            continue
         cands = [r for r in results if r["ok"] and r["key"] == t["key"]]
         cands.sort(key=lambda r: (-r["score"], r["latency"]))
         chosen[t["key"]] = cands[:TOP_N]

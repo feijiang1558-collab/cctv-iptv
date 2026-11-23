@@ -1,16 +1,16 @@
 #EXTM3U x-tvg-url="https://epg.aptv.app/pp.xml.gz"
 #EXT-X-VERSION:3
-# @generated 2026-11-23 19:20:07 (Asia/Shanghai)
+# @generated 2026-11-24 07:10:18 (Asia/Shanghai)
 # @channels CCTV-1 CCTV-2 CCTV-3 CCTV-4 CCTV-8 CCTV-13
 
 #EXTINF:-1 tvg-id="CCTV1" tvg-name="CCTV1" tvg-logo="https://gitee.com/mytv-android/myTVlogo/raw/main/img/CCTV1.png" group-title="央视高清" http-user-agent="AptvPlayer-UA",CCTV-1 综合
 http://101.35.240.114:88/live.php?id=CCTV1
 
 #EXTINF:-1 tvg-id="CCTV2" tvg-name="CCTV2" tvg-logo="https://gitee.com/mytv-android/myTVlogo/raw/main/img/CCTV2.png" group-title="央视高清",CCTV-2 财经
-http://198.204.228.26/live/cctv2hd.m3u8
+http://192.151.150.154/live/cctv2hd.m3u8
 
 #EXTINF:-1 tvg-id="CCTV3" tvg-name="CCTV3" tvg-logo="https://gitee.com/mytv-android/myTVlogo/raw/main/img/CCTV3.png" group-title="央视高清",CCTV-3 综艺
-http://107.150.60.122/live/cctv3hd.m3u8
+http://74.91.26.218:82/live/cctv3hd.m3u8
 
 #EXTINF:-1 tvg-id="CCTV4" tvg-name="CCTV4" tvg-logo="https://gitee.com/mytv-android/myTVlogo/raw/main/img/CCTV4.png" group-title="央视高清",CCTV-4 中文国际
 http://107.150.60.122/live/cctv4hd.m3u8

@@ -1,6 +1,6 @@
 #EXTM3U
 # 全部CCTV + 10热门卫视 | 每频道3条线路(第1条官方国内源最快最稳，第2/3条海外备用可能有广告)
-# 自动生成时间(北京时间): 2026-11-28 07:11
+# 自动生成时间(北京时间): 2026-11-28 19:07
 # 主频道 29 个
 #EXTINF:-1 tvg-id="CCTV1" tvg-name="CCTV1" http-user-agent="AptvPlayer-UA" group-title="央视IPV4",CCTV1
 http://101.35.240.114:88/live.php?id=CCTV1
